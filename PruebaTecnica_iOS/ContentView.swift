@@ -8,37 +8,71 @@
 import SwiftUI
 
 struct ContentView: View {
-    let request = Requests()
     
-    @State private var characters : [Character] = []
+    @StateObject var request = Requests()
+    
+    //@State private var status : String = ""
+    private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     
     var body: some View {
-        VStack(alignment: .trailing, spacing: 20.0) {
-            Text(self.characters.first?.name ?? "")
-            AsyncImage(url: URL(string: self.characters.first?.image ?? ""))
-            Text(self.characters.first?.originPlanet ?? "")
-            Text(self.characters.first?.status ?? "")
-        }
-        .padding()
-        .onAppear(){
-            request.getAllCharacters() { result in
-                switch result {
-                case let .success(response):
-                    print("Los datos obtenidos de mi petición son \(String(describing: response))")
-                    DispatchQueue.main.async {
-                        self.characters = response.characters
+    
+        ZStack {
+            
+            Color(red: 204.0/255.0, green: 255.0/255.0, blue: 255.0/255.0)
+                .ignoresSafeArea()
+            
+            VStack(alignment: .center, spacing: 5.0){
+                
+                Text("Rick & Morty Characters")
+                    .foregroundColor(.cyan)
+                    .font(.title)
+                    .bold()
+                    .italic()
+                
+                
+                ScrollView(.vertical, showsIndicators: true){
+                    LazyVGrid(columns: self.columns, spacing: 5.0){
+                        ForEach(self.request.characters, id: \.id){
+                            character in
+                            withAnimation{
+                                LazyVStack(alignment: .center, spacing: 10.0){
+                                    AsyncImage(
+                                        url: URL(string: character.image),
+                                        content: { image in
+                                            image.resizable()
+                                                 .aspectRatio(contentMode: .fit)
+                                                 .frame(maxWidth: 100, maxHeight: 100)
+                                                 .clipShape(Circle())
+                                        },
+                                        placeholder: {
+                                            ProgressView()
+                                        }
+                                    )
+                                    Text("\(character.name)")
+                                        .font(.headline)
+                                        .foregroundColor(.purple)
+                                    Text("Planet: \(character.originPlanet)")
+                                        .font(.caption)
+                                    Text("Status: \(character.status)")
+                                        .font(.caption)
+                                }
+                                .padding(.vertical)
+                                .onAppear(){
+                                    if character.name == self.request.characters.last?.name {
+                                        self.request.loadCharacters()
+                                    }
+                                }
+                            } // Fin LazyVStack
+                        } // Fin ForEach
+                    } // Fin LazyVGrid
+                    .padding(.horizontal)
+                    if self.request.isLoadingContent {
+                        ProgressView().frame(width: 500.0, height: 500.0, alignment: .center)
                     }
-                    
-                case let .failure(error):
-                    print(error)
-                    
-                    DispatchQueue.main.async {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
-        }
-    }
+                } // Fin ScrollView
+            } // Fin VStack
+        } // Fin ZStack
+    } // Fin View
 }
 
 struct ContentView_Previews: PreviewProvider {
