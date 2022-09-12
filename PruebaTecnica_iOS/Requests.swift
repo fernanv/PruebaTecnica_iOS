@@ -7,6 +7,11 @@
 
 import Alamofire
 
+enum Status: String, CaseIterable, Identifiable, Equatable {
+    case Alive, Dead, unknown, None
+    var id: Self { self }
+}
+
 struct Characters: Codable{
     
     let characters: [Character]
@@ -74,29 +79,53 @@ class Requests: ObservableObject {
     private var lastPage: Int = 42
     private var currentPage = 1
     private var canLoadMore = true
-    private var filterActivated = false
+    var newStatus = false
     
     init() {
-        self.loadCharacters()
+        self.loadCharacters(status: .None)
     }
     
-    func loadCharacters() {
+    func loadCharacters(status: Status) {
         
         if self.currentPage == self.lastPage {
             self.canLoadMore = false
         }
         
-        self.getCharactersByPage(page: self.currentPage) { result in
-            switch result {
-            case let .success(response):
-                DispatchQueue.main.async {
-                    self.lastPage = response.info.pages
-                    for character in response.characters {
-                        self.characters.append(character)
+        if self.newStatus {
+            self.characters.removeAll()
+            self.currentPage = 1
+            self.newStatus = false
+        }
+        
+        if status == .None {
+            
+            self.getCharactersByPage(page: self.currentPage) { result in
+                switch result {
+                case let .success(response):
+                    DispatchQueue.main.async {
+                        self.lastPage = response.info.pages
+                        for character in response.characters {
+                            self.characters.append(character)
+                        }
                     }
+                case let .failure(error):
+                    print(error)
                 }
-            case let .failure(error):
-                print(error)
+            }
+        }
+        else {
+            self.getCharactersByStatus(page: self.currentPage, status: status.rawValue) { result in
+                switch result {
+                case let .success(response):
+                    DispatchQueue.main.async {
+                        self.lastPage = response.info.pages
+                        for character in response.characters {
+                            self.characters.append(character)
+                        }
+                    }
+                case let .failure(error):
+                    print(error)
+                }
             }
         }
         
