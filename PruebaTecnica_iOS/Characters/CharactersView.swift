@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CharactersView: View {
     
-    @StateObject var request = Requests()
+    @StateObject var viewModel = CharactersViewModel()
+    
     @State var selectedStatus: Status = .None
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     
@@ -41,8 +42,8 @@ struct ContentView: View {
                             Text("Desconocido").tag(Status.unknown)
                         }
                         .onChange(of: self.selectedStatus) { _ in
-                            self.request.newStatus = true
-                            self.request.loadCharacters(status: self.selectedStatus)
+                            self.viewModel.newStatus = true
+                            self.viewModel.loadCharacters(status: self.selectedStatus)
                         }
                         .background(Color(red: 242.0/255.0, green: 233.0/255.0, blue: 251.0/255.0))
                         .cornerRadius(10.0)
@@ -52,11 +53,11 @@ struct ContentView: View {
                     
                     ScrollView(.vertical, showsIndicators: true){
                         LazyVGrid(columns: self.columns, spacing: 5.0){
-                            ForEach(self.request.characters, id: \.id){
+                            ForEach(self.viewModel.characters, id: \.id){
                                 character in
                                 withAnimation{
                                     NavigationLink{
-                                    
+                                        EpisodesView(viewModel: EpisodesViewModel(character: character))
                                     } label : {
                                         LazyVStack(alignment: .center, spacing: 10.0){
                                             AsyncImage(
@@ -81,8 +82,8 @@ struct ContentView: View {
                                         }
                                         .padding(.vertical)
                                         .onAppear(){
-                                            if character.name == self.request.characters.last?.name {
-                                                self.request.loadCharacters(status: self.selectedStatus)
+                                            if character.name == self.viewModel.characters.last?.name {
+                                                self.viewModel.loadCharacters(status: self.selectedStatus)
                                             }
                                         }
                                     } // Fin LazyVStack
@@ -90,11 +91,10 @@ struct ContentView: View {
                             } // Fin ForEach
                         } // Fin LazyVGrid
                         .padding(.horizontal)
-                        if self.request.isLoadingContent {
+                        if self.viewModel.isLoadingContent {
                             ProgressView().frame(width: 500.0, height: 500.0, alignment: .center)
                         }
                     } // Fin ScrollView
-                    
                 } // Fin VStack
             } // Fin ZStack
             .navigationBarHidden(true)
@@ -102,8 +102,8 @@ struct ContentView: View {
     } // Fin View
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CharactersView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CharactersView()
     }
 }

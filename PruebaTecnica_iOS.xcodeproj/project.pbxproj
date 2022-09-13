@@ -8,21 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		24D5C93A64CC021324BBA205 /* Pods_PruebaTecnica_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F871CFFA5904E16E2B24F9 /* Pods_PruebaTecnica_iOS.framework */; };
+		5D2489EA28CF716A0015E7B2 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2489E928CF716A0015E7B2 /* EpisodesView.swift */; };
+		5D2489EC28D07B680015E7B2 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2489EB28D07B680015E7B2 /* CharactersModel.swift */; };
+		5D2489EE28D07BDF0015E7B2 /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2489ED28D07BDF0015E7B2 /* EpisodesModel.swift */; };
+		5D2489F028D07CA90015E7B2 /* EpisodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2489EF28D07CA90015E7B2 /* EpisodesViewModel.swift */; };
 		5D86951928CCB51C007670A9 /* PruebaTecnica_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D86951828CCB51C007670A9 /* PruebaTecnica_iOSApp.swift */; };
-		5D86951B28CCB51C007670A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D86951A28CCB51C007670A9 /* ContentView.swift */; };
+		5D86951B28CCB51C007670A9 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D86951A28CCB51C007670A9 /* CharactersView.swift */; };
 		5D86951D28CCB521007670A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D86951C28CCB521007670A9 /* Assets.xcassets */; };
 		5D86952028CCB521007670A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D86951F28CCB521007670A9 /* Preview Assets.xcassets */; };
-		5D86952728CCB5DF007670A9 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D86952628CCB5DF007670A9 /* Requests.swift */; };
+		5D86952728CCB5DF007670A9 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D86952628CCB5DF007670A9 /* CharactersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38F871CFFA5904E16E2B24F9 /* Pods_PruebaTecnica_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PruebaTecnica_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D2489E928CF716A0015E7B2 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
+		5D2489EB28D07B680015E7B2 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
+		5D2489ED28D07BDF0015E7B2 /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
+		5D2489EF28D07CA90015E7B2 /* EpisodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewModel.swift; sourceTree = "<group>"; };
 		5D86951528CCB51C007670A9 /* PruebaTecnica_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaTecnica_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D86951828CCB51C007670A9 /* PruebaTecnica_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaTecnica_iOSApp.swift; sourceTree = "<group>"; };
-		5D86951A28CCB51C007670A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5D86951A28CCB51C007670A9 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		5D86951C28CCB521007670A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D86951F28CCB521007670A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5D86952628CCB5DF007670A9 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		5D86952628CCB5DF007670A9 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		955DB590498C3E83D4FAB5AD /* Pods-PruebaTecnica_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PruebaTecnica_iOS.debug.xcconfig"; path = "Target Support Files/Pods-PruebaTecnica_iOS/Pods-PruebaTecnica_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B6C8E69B1986F1369455EE9D /* Pods-PruebaTecnica_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PruebaTecnica_iOS.release.xcconfig"; path = "Target Support Files/Pods-PruebaTecnica_iOS/Pods-PruebaTecnica_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,8 +53,27 @@
 				955DB590498C3E83D4FAB5AD /* Pods-PruebaTecnica_iOS.debug.xcconfig */,
 				B6C8E69B1986F1369455EE9D /* Pods-PruebaTecnica_iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5D2489F128D0906D0015E7B2 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				5D86951A28CCB51C007670A9 /* CharactersView.swift */,
+				5D86952628CCB5DF007670A9 /* CharactersViewModel.swift */,
+				5D2489EB28D07B680015E7B2 /* CharactersModel.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		5D2489F228D0908C0015E7B2 /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				5D2489E928CF716A0015E7B2 /* EpisodesView.swift */,
+				5D2489EF28D07CA90015E7B2 /* EpisodesViewModel.swift */,
+				5D2489ED28D07BDF0015E7B2 /* EpisodesModel.swift */,
+			);
+			path = Episodes;
 			sourceTree = "<group>";
 		};
 		5D86950C28CCB51C007670A9 = {
@@ -71,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				5D86951828CCB51C007670A9 /* PruebaTecnica_iOSApp.swift */,
-				5D86951A28CCB51C007670A9 /* ContentView.swift */,
-				5D86952628CCB5DF007670A9 /* Requests.swift */,
+				5D2489F128D0906D0015E7B2 /* Characters */,
+				5D2489F228D0908C0015E7B2 /* Episodes */,
 				5D86951C28CCB521007670A9 /* Assets.xcassets */,
 				5D86951E28CCB521007670A9 /* Preview Content */,
 			);
@@ -138,6 +165,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
 				Base,
 			);
 			mainGroup = 5D86950C28CCB51C007670A9;
@@ -209,8 +237,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D86952728CCB5DF007670A9 /* Requests.swift in Sources */,
-				5D86951B28CCB51C007670A9 /* ContentView.swift in Sources */,
+				5D86952728CCB5DF007670A9 /* CharactersViewModel.swift in Sources */,
+				5D2489F028D07CA90015E7B2 /* EpisodesViewModel.swift in Sources */,
+				5D86951B28CCB51C007670A9 /* CharactersView.swift in Sources */,
+				5D2489EA28CF716A0015E7B2 /* EpisodesView.swift in Sources */,
+				5D2489EE28D07BDF0015E7B2 /* EpisodesModel.swift in Sources */,
+				5D2489EC28D07B680015E7B2 /* CharactersModel.swift in Sources */,
 				5D86951928CCB51C007670A9 /* PruebaTecnica_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
