@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CharactersView.swift
 //  PruebaTecnica_iOS
 //
 //  Created by Fernando Villalba  on 10/9/22.
@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharactersView: View {
     
-    @StateObject var viewModel = CharactersViewModel()
+    @StateObject var viewModel = CharactersViewModel() // Reference to ViewModel
     
     @State var selectedStatus: Status = .None
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
@@ -75,7 +75,7 @@ struct CharactersView: View {
                                             Text("\(character.name)")
                                                 .font(.headline)
                                                 .foregroundColor(.purple)
-                                            Text("Planet: \(character.originPlanet)")
+                                            Text("Planeta: \(character.originPlanet)")
                                                 .font(.caption)
                                             Text("Status: \(character.status)")
                                                 .font(.caption)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EpisodesView: View {
     
-    @State var viewModel : EpisodesViewModel
+    @State var viewModel : EpisodesViewModel // Reference to ViewModel
     
     init(viewModel: EpisodesViewModel){
         self.viewModel = viewModel

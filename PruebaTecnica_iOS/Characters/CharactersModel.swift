@@ -34,6 +34,8 @@ struct Info: Codable{
     }
 }
 
+// MARK: - Character Data Struct
+
 struct Character: Codable, Identifiable{
     
     let id: Int

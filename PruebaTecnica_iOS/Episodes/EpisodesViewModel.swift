@@ -1,5 +1,5 @@
 //
-//  CharacterEpisodesViewModel.swift
+//  EpisodesViewModel.swift
 //  PruebaTecnica_iOS
 //
 //  Created by Fernando Villalba  on 13/9/22.
@@ -9,10 +9,10 @@ import Alamofire
 
 class EpisodesViewModel: ObservableObject {
     
-    @Published var episodes: [Episode] = []
+    @Published var episodes: [Episode] = [] // Reference to Model
     
     @Published var character: Character
-    @Published var sections: Set<String> = []
+    @Published var sections: Set<String> = [] // Set para evitar secciones repetidas al insertar
     @Published var isLoadingContent = false
     
     init(character: Character) {
@@ -20,6 +20,11 @@ class EpisodesViewModel: ObservableObject {
         self.getCharacterEpisodes()
     }
 
+    // MARK: - EpisodesViewModel public functions
+    
+    /*
+     Obtiene todos los episodios y sus respectivas secciones para un personaje dado
+     */
     func getCharacterEpisodes(){
         
         for episode in self.character.episode {
@@ -38,6 +43,11 @@ class EpisodesViewModel: ObservableObject {
         }
     }
     
+    // MARK: - EpisodesViewModel private functions
+    
+    /*
+     Obtiene un episodio dado a partir de la url del mismo
+     */
     private func getEpisode(episodeURL: String, callback: @escaping (Result<Episode, Error>) -> Void){
     
         self.isLoadingContent = true
